@@ -102,26 +102,26 @@ namespace TEngineCore
             }
         }
 
-        [Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_INFO")]
+        //[Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_INFO")]
         public static void LogInfo(string logStr)
         {
             Instance.Log(LogLevel.INFO, logStr);
         }
 
-        [Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_INFO")]
+        //[Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_INFO")]
         public static void LogInfo(string format, params System.Object[] args)
         {
             string logStr = string.Format(format, args);
             Instance.Log(LogLevel.INFO, logStr);
         }
 
-        [Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_SUCCESS")]
+        //[Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_SUCCESS")]
         public static void LogInfoSuccessd(string logStr)
         {
             Instance.Log(LogLevel.Successd, logStr);
         }
 
-        [Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_SUCCESS")]
+        //[Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_SUCCESS")]
         public static void LogInfoSuccessd(string format, params System.Object[] args)
         {
             string logStr = string.Format(format, args);
@@ -141,13 +141,13 @@ namespace TEngineCore
             Instance.Log(LogLevel.WARNING, logStr);
         }
 
-        [Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_ERROR")]
+        //[Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_ERROR")]
         public static void LogError(string logStr)
         {
             Instance.Log(LogLevel.ERROR, logStr);
         }
 
-        [Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_ERROR")]
+        //[Conditional("UNITY_EDITOR"), Conditional("_DEVELOPMENT_BUILD_"), Conditional("ENABLE_LOG_ERROR")]
         public static void LogError(string format, params System.Object[] args)
         {
             string logStr = string.Format(format, args);

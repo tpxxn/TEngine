@@ -78,7 +78,7 @@
   <ItemGroup>
     <Folder Include="src\GameLogic\" />
     <Folder Include="src\TEngineCore\3rd\" />
-    <Folder Include="src\TEngineCore\Net\Demon\" />
+    <Folder Include="src\TEngineCore\Huatuo\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

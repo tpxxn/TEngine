@@ -114,17 +114,17 @@ namespace TEngine
             return str;
         }
 
-        public static Stream OpenRead(string filePath)
-        {
-#if UNITY_ANDROID && !UNITY_EDITOR
-            byte[] bytes = ReadAllBytesFromOutOrInnerFolder(filePath);
-            if (bytes != null)
-                return new MemoryStream(bytes);
-            else
-                return null;
-#else
-            return File.OpenRead(filePath);
-#endif
-        }
+//        public static Stream OpenRead(string filePath)
+//        {
+//#if UNITY_ANDROID && !UNITY_EDITOR
+//            byte[] bytes = ReadAllBytesFromOutOrInnerFolder(filePath);
+//            if (bytes != null)
+//                return new MemoryStream(bytes);
+//            else
+//                return null;
+//#else
+//            return File.OpenRead(filePath);
+//#endif
+//        }
     }
 }
