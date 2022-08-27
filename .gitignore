@@ -91,3 +91,5 @@ TEngineHotUpdate/obj
 
 [Aa]ssets/StreamingAssets/
 [Aa]ssets/StreamingAssets.meta
+**/.idea
+**/.vscode
