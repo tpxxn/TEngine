@@ -286,12 +286,14 @@ namespace TEngine.Editor.UI
                     string varFuncName = GetBtnFuncName(varName);
                     if (isUniTask)
                     {
+                        strOnCreate.Append($"\t\t\t{varName}.onClick.RemoveAllListeners();\n");
                         strOnCreate.Append($"\t\t\t{varName}.onClick.AddListener(UniTask.UnityAction({varFuncName}));\n");
                         strCallback.Append($"\t\tprivate async UniTaskVoid {varFuncName}()\n");
                         strCallback.Append("\t\t{\n await UniTask.Yield();\n\t\t}\n");
                     }
                     else
                     {
+                        strOnCreate.Append($"\t\t\t{varName}.onClick.RemoveAllListeners();\n");
                         strOnCreate.Append($"\t\t\t{varName}.onClick.AddListener({varFuncName});\n");
                         strCallback.Append($"\t\tprivate void {varFuncName}()\n");
                         strCallback.Append("\t\t{\n\t\t}\n");
@@ -300,6 +302,7 @@ namespace TEngine.Editor.UI
                 else if (componentName == "Toggle")
                 {
                     string varFuncName = GetToggleFuncName(varName);
+                    strOnCreate.Append($"\t\t\t{varName}.onValueChanged.RemoveAllListeners();\n");
                     strOnCreate.Append($"\t\t\t{varName}.onValueChanged.AddListener({varFuncName});\n");
                     strCallback.Append($"\t\tprivate void {varFuncName}(bool isOn)\n");
                     strCallback.Append("\t\t{\n\t\t}\n");
@@ -307,6 +310,7 @@ namespace TEngine.Editor.UI
                 else if (componentName == "Slider")
                 {
                     string varFuncName = GetSliderFuncName(varName);
+                    strOnCreate.Append($"\t\t\t{varName}.onValueChanged.RemoveAllListeners();\n");
                     strOnCreate.Append($"\t\t\t{varName}.onValueChanged.AddListener({varFuncName});\n");
                     strCallback.Append($"\t\tprivate void {varFuncName}(float value)\n");
                     strCallback.Append("\t\t{\n\t\t}\n");
