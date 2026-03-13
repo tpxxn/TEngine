@@ -345,7 +345,7 @@ namespace TEngine.Editor.UI
                     var tmpDropdownFuncName = GetTMPDropdownFuncName(varName);
                     strOnCreate.Append($"\t\t\t{varName}.onValueChanged.RemoveAllListeners();\n");
                     strOnCreate.Append($"\t\t\t{varName}.onValueChanged.AddListener({tmpDropdownFuncName});\n");
-                    strCallback.Append($"\t\tprivate void {tmpDropdownFuncName}(int selectedIndex);\n");
+                    strCallback.Append($"\t\tprivate partial void {tmpDropdownFuncName}(int selectedIndex);\n");
                     strCallback.AppendLine();
                     break;
 
