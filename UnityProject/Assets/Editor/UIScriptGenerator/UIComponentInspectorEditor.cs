@@ -77,8 +77,12 @@ namespace GameLogic
                             if (uiBindComponent.uiType == ScriptGeneratorSetting.Instance.UIGenTypes[0].uiTypeName)
                             {
                                 targetName = $"{parent.name.Replace("UI", string.Empty)}{targetName.Replace(rule.uiElementRegex, string.Empty)}Widget";
-                                break;
                             }
+                            else
+                            {
+                                targetName = $"{uiBindComponent.className.Replace("Widget", string.Empty)}{targetName.Replace(rule.uiElementRegex, string.Empty)}Widget";
+                            }
+                            break;
                         }
                         parent = parent.parent;
                         if (!parent)
