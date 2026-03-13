@@ -321,12 +321,13 @@ namespace TEngine.Editor.UI
 
                     if (isUniTask)
                     {
-                        strOnCreate.AppendLine(
-                            $"\t\t\t{varName}.onClick.AddListener(UniTask.UnityAction({btnFuncName}));");
+                        strOnCreate.AppendLine($"\t\t\t{varName}.onClick.RemoveAllListeners();");
+                        strOnCreate.AppendLine($"\t\t\t{varName}.onClick.AddListener(UniTask.UnityAction({btnFuncName}));");
                         strCallback.AppendLine($"\t\tprivate partial UniTaskVoid {btnFuncName}();");
                     }
                     else
                     {
+                        strOnCreate.AppendLine($"\t\t\t{varName}.onClick.RemoveAllListeners();");
                         strOnCreate.AppendLine($"\t\t\t{varName}.onClick.AddListener({btnFuncName});");
                         strCallback.AppendLine($"\t\tprivate partial void {btnFuncName}();");
                     }
@@ -336,6 +337,7 @@ namespace TEngine.Editor.UI
 
                 case UIComponentName.Toggle:
                     var toggleFuncName = GetToggleFuncName(varName);
+                    strOnCreate.AppendLine($"\t\t\t{varName}.onValueChanged.RemoveAllListeners();");
                     strOnCreate.AppendLine($"\t\t\t{varName}.onValueChanged.AddListener({toggleFuncName});");
                     strCallback.AppendLine($"\t\tprivate partial void {toggleFuncName}(bool isOn);");
                     strCallback.AppendLine();
@@ -351,6 +353,7 @@ namespace TEngine.Editor.UI
 
                 case UIComponentName.Slider:
                     var sliderFuncName = GetSliderFuncName(varName);
+                    strOnCreate.AppendLine($"\t\t\t{varName}.onValueChanged.RemoveAllListeners();");
                     strOnCreate.AppendLine($"\t\t\t{varName}.onValueChanged.AddListener({sliderFuncName});");
                     strCallback.AppendLine($"\t\tprivate partial void {sliderFuncName}(float value);");
                     strCallback.AppendLine();
