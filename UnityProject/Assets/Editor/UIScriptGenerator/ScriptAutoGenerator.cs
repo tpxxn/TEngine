@@ -262,7 +262,7 @@ namespace TEngine.Editor.UI
                 Transform child = transform.GetChild(i);
                 WriteAutoScript(root, child, ref strVar, ref strBind, ref strOnCreate, ref strCallback, isUniTask);
                 // 跳过 "m_item"
-                if (child.name.StartsWith(GetUIWidgetName()))
+                if (child.name.StartsWith(GetUIWidgetGameObjectName()))
                 {
                     continue;
                 }
@@ -430,7 +430,7 @@ namespace TEngine.Editor.UI
                 Transform child = transform.GetChild(i);
                 WriteAutoImpScript(root, child, ref strCallback, isUniTask);
                 // 跳过 "m_item"
-                if (child.name.StartsWith(GetUIWidgetName()))
+                if (child.name.StartsWith(GetUIWidgetGameObjectName()))
                 {
                     continue;
                 }
@@ -548,7 +548,7 @@ namespace TEngine.Editor.UI
                 WriteScriptUIComponent(root, child, uiBindComponent);
 
                 // 跳过 "m_item"
-                if (child.name.StartsWith(GetUIWidgetName()))
+                if (child.name.StartsWith(GetUIWidgetGameObjectName()))
                 {
                     continue;
                 }
@@ -749,6 +749,16 @@ namespace TEngine.Editor.UI
         private static string GetPrefixNameByCodeStyle(UIFieldCodeStyle style)
         {
             return ScriptGeneratorSetting.GetPrefixNameByCodeStyle(style);
+        }
+
+        private static string GetUIWidgetGameObjectName()
+        {
+            foreach (var rule in ScriptGeneratorSetting.Instance.ScriptGenerateRule.Where(rule => rule.isUIWidget))
+            {
+                return rule.uiElementRegex;
+            }
+            // 生成规则里没有有勾选是否Widget时，保底
+            return GetUIWidgetName();
         }
 
         private static string GetUIWidgetName()
