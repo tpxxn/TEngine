@@ -190,6 +190,19 @@ namespace TEngine.Editor.UI
             }
         }
 
+        public static string GetTMPDropdownFuncName(string varName)
+        {
+            var codeStyle = ScriptGeneratorSetting.Instance.CodeStyle;
+            if (codeStyle == UIFieldCodeStyle.MPrefix)
+            {
+                return "OnTMPDropdown" + varName.Replace("m_tmpDropdown", string.Empty) + "Change";
+            }
+            else
+            {
+                return "OnTMPDropdown" + varName.Replace("_tmpDropdown", string.Empty) + "Change";
+            }
+        }
+
         public static string GetSliderFuncName(string varName)
         {
             var codeStyle = ScriptGeneratorSetting.Instance.CodeStyle;

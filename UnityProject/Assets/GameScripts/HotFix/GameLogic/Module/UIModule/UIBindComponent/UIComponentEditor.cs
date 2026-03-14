@@ -10,7 +10,7 @@ namespace GameLogic
         [SerializeField, HideInInspector] public string className;
         [SerializeField, HideInInspector] private string impCodePath;
         [SerializeField, HideInInspector] private bool isGenImpClass;
-        [SerializeField, HideInInspector] private string uiType;
+        [SerializeField, HideInInspector] public string uiType;
 
         public void AddComponent(Component component)
         {
