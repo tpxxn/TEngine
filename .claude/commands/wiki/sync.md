@@ -1,5 +1,5 @@
 ---
-description: 同步文档与代码，修正不一致内容（自动加载 wiki-maintainer skill）
+description: 同步文档与代码，修正不一致内容（自动加载 wiki-synchelper skill）
 ---
 
 加载 `wiki-synchelper` skill，对当前改动做文档对齐。
