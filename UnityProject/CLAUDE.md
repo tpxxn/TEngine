@@ -49,13 +49,13 @@ TEngine 基于 HybridCLR + YooAsset + UniTask + Luban 构建。
 
 | 场景 | 必须查询主题 |
 |------|------------|
-| UI 开发 | ui-development.md — UIWindow 生命周期、UIWidget 规范 |
-| 资源加载 | resource-management.md — LoadAssetAsync API、释放时机 |
-| 热更代码 | hotfix-development.md — 程序集划分、GameApp 入口、热更边界 |
+| UI 开发 | ui-lifecycle.md — UIWindow 生命周期、UIWidget 规范 |
+| 资源加载 | resource-api.md — LoadAssetAsync API、释放时机 |
+| 热更代码 | hotfix-workflow.md — 程序集划分、GameApp 入口、热更边界 |
 | 事件系统 | event-system.md — GameEvent 用法、AddUIEvent 规范 |
 | 模块使用 | modules.md — GameModule.XXX API、模块生命周期 |
 | Luban 配置 | luban-config.md — 配置表生成流程、访问方式 |
-| 代码规范 | conventions.md — 命名约定、设计模式、架构约束 |
+| 代码规范 | naming-rules.md — 命名约定、节点前缀、设计模式 |
 
 ---
 
@@ -83,24 +83,26 @@ TEngine 基于 HybridCLR + YooAsset + UniTask + Luban 构建。
 
 > **AI 唯一权威来源：`.claude/skills/tengine-dev/references/`**
 
-| 文档 | 内容 |
-|-----|------|
-| architecture.md | 项目结构/启动流程 |
-| modules.md | 模块 API（Timer/Scene/Audio/Fsm）|
-| ui-development.md | UI 开发 |
-| event-system.md | 事件系统 |
-| resource-management.md | 资源加载 |
-| hotfix-development.md | 热更代码（HybridCLR/程序集划分）|
-| hotpatch-management.md | 热更包下载/Manifest/缓存清理 |
-| luban-config.md | 配置表 |
-| conventions.md | 代码规范 |
-| troubleshooting.md | 问题排查 |
-| unity-mcp-guide.md | MCP 工具索引 |
-| ui-prefab-builder.md | UI Prefab 拼接 |
-| scene-gameobject.md | 场景/GameObject 操作 |
-| script-asset-workflow.md | 脚本/资源管理 |
-| material-shader-vfx.md | 材质/Shader/VFX/动画控制器 |
-| editor-automation.md | Editor 自动化/PlayMode/测试/日志 |
+| 文档 | 内容 | 层级 |
+|-----|------|------|
+| architecture.md | 项目结构/启动流程 | 核心 |
+| modules.md | 模块 API（Timer/Scene/Audio/Fsm）| 核心 |
+| ui-lifecycle.md | UI 开发（生命周期/层级/属性）| 核心 |
+| event-system.md | 事件系统（两种模式/核心接口）| 核心 |
+| resource-api.md | 资源加载/卸载 | 核心 |
+| hotfix-workflow.md | 热更代码（HybridCLR/程序集划分/热更包）| 核心 |
+| luban-config.md | 配置表 | 核心 |
+| naming-rules.md | 代码规范/命名约定/节点前缀 | 核心 |
+| ui-patterns.md | UI 进阶（Widget 模板/节点绑定）| 进阶 |
+| event-antipatterns.md | 事件避坑 | 进阶 |
+| resource-patterns.md | 资源管理模式/生命周期 | 进阶 |
+| mcp-index.md | MCP 工具索引/batch_execute | MCP |
+| mcp-ui-build.md | 拼 UI Prefab | MCP |
+| mcp-scene.md | 场景/GameObject 操作 | MCP |
+| mcp-asset.md | 脚本创建/资源管理 | MCP |
+| mcp-visual.md | 材质/Shader/VFX/动画 | MCP |
+| mcp-editor.md | Editor 自动化/测试/日志 | MCP |
+| troubleshooting.md | 问题排查 | 排障 |
 
 ---
 
