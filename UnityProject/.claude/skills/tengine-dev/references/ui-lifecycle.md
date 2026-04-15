@@ -113,4 +113,4 @@ protected override void RegisterEvent()
 ```
 
 **禁止**在 `RegisterEvent` 外使用 `GameEvent.AddEventListener`（不会自动清理，导致内存泄漏）。
-详见 [event-antipatterns.md](event-antipatterns.md)。
+详见 [event-system.md](event-system.md#常见错误)。

@@ -70,7 +70,7 @@ Burst/IL2CPP 裁剪了代码。在 `Assets/link.xml` 中保留需要的类型：
 
 ### UI 事件销毁后仍触发
 
-在 `RegisterEvent()` 外使用 `GameEvent.AddEventListener` 不会自动清理。必须用 `AddUIEvent`。详见 [event-antipatterns.md](event-antipatterns.md)。
+在 `RegisterEvent()` 外使用 `GameEvent.AddEventListener` 不会自动清理。必须用 `AddUIEvent`。详见 [event-system.md](event-system.md#常见错误)。
 
 ## 事件系统问题
 
