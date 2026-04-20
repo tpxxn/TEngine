@@ -113,29 +113,45 @@ _eventMgr.Clear();
 ### int 事件
 
 ```csharp
-// 定义事件 ID
-public static class GameEventDef
+// 1. 定义事件接口（必须 [EventInterface]，需指定事件组）
+[EventInterface(EEventGroup.GroupUI)]
+public interface IGameEvent
 {
-    public const int OnGoldChanged = 1;
-    public const int OnLevelUp = 2;
+    void OnGoldChanged();
+
+    voic OnHpChanged(int hp)
+}
+
+// 2. 源代码生成器自动实现并注册
+public class IGameEvent_Event
+{
+    public static readonly int OnGoldChanged = RuntimeId.ToRuntimeId("IGameEvent_Event.OnGoldChanged");
+    public static readonly int OnHpChanged = RuntimeId.ToRuntimeId("IGameEvent_Event.OnHpChanged");
+}
+
+public class IGameEvent_Gen : ITrade
+{
+    void OnGoldChanged() { /* 自动生成 */ }
+
+    void OnHpChanged(int hp) { /* 自动生成 */ }
 }
 
 // 发送
-GameEvent.Send(GameEventDef.OnGoldChanged);
-GameEvent.Send<int>(GameEventDef.OnHpChanged, 50);
+GameEvent.Get<IGameEvent>().OnGoldChanged();
+GameEvent.Get<IGameEvent>().OnHpChanged(hp);
 
 // 监听（UI 内用 AddUIEvent 自动清理）
-AddUIEvent(GameEventDef.OnGoldChanged, OnGoldChanged);
-AddUIEvent<int>(GameEventDef.OnHpChanged, OnHpChanged);
+AddUIEvent(IGameEvent_Event.OnGoldChanged, OnGoldChanged);
+AddUIEvent<int>(IGameEvent_Event.OnHpChanged, OnHpChanged);
 
 // 非 UI 类监听（必须手动移除）
-void OnEnable() { GameEvent.AddEventListener<int>(GameEventDef.OnHpChanged, OnHpChanged); }
-void OnDisable() { GameEvent.RemoveEventListener<int>(GameEventDef.OnHpChanged, OnHpChanged); }
+void OnEnable() { GameEvent.AddEventListener<int>(IGameEvent_Event.OnHpChanged, OnHpChanged); }
+void OnDisable() { GameEvent.RemoveEventListener<int>(IGameEvent_Event.OnHpChanged, OnHpChanged); }
 ```
 
 ### string 事件类型
 
-除 `int` 外，`GameEvent` 也支持 `string` 作为事件 ID（API 与 int 版本对称）：
+除 `int` 外，`GameEvent` 也支持 `string` 作为事件 ID（API 与 int 版本对称，但是不推荐使用）：
 
 ```csharp
 // 发送
@@ -163,11 +179,10 @@ public interface ITrade
     void OnTradeComplete(int itemId, int count);
 }
 
-// 2. 实现并注册
-public class TradeSystem : ITrade
+// 2. 源代码生成器自动实现并注册
+public class ITrade_Gen : ITrade
 {
-    void ITrade.OnTradeComplete(int itemId, int count) { /* 处理 */ }
-    public void Init() { GameEventHelper.RegisterListener<ITrade>(this); }
+    void OnTradeComplete(int itemId, int count) { /* 自动生成 */ }
 }
 
 // 3. 发送
@@ -276,6 +291,17 @@ GameEvent.UnRegisterAll();
 GameEvent.RemoveEventListener(eventType, handler);  // 移除单个监听
 GameEventMgr.Clear();                               // 局部批量清除
 GameEvent.Shutdown();                               // 全局清除（仅游戏退出时）
+```
+
+### 7. 误用不存在的 RegisterListener
+
+```csharp
+// 错误：GameEvent 中不存在 RegisterListener<T>() 方法
+GameEvent.RegisterListener<ITrade>(implementation);
+
+// 正确：GameEventHelper.Init() 由 Source Generator 自动注册，无需手动调用 RegisterListener
+// 接口事件实现类由编译时自动生成和注册，只需确保 GameEventHelper.Init() 在 GameApp.Entrance 中最先调用
+GameEventHelper.Init();
 ```
 
 ---

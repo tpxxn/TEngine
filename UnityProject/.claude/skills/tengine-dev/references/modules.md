@@ -145,6 +145,9 @@ Log.Assert(condition, "断言失败提示");
 | `Shutdown()` 后继续访问模块属性 | `Shutdown()` 仅游戏退出时调用 | 所有缓存引用置 null，后续访问触发重新查找或空引用 |
 | `MemoryPool.Release()` 后访问对象 | Release 后禁止再访问 | 对象已归还池中，状态不确定 |
 | `MemoryPool.Release()` 同一对象两次 | 确保只 Release 一次 | 重复归还导致池状态异常 |
+| `GameModule.LoadScene` | `GameModule.Scene.LoadSceneAsync` | 不存在 `GameModule.LoadScene`，场景加载通过 `GameModule.Scene` |
+| `new FsmState<>()` | 继承 `FsmState<TOwner>` | 状态必须继承基类，不能直接 new |
+| `GameModule.Timer.AddTimer(time, callback)` | `GameModule.Timer.AddTimer(callback, time)` | 参数顺序：回调在前，时间在后 |
 
 ---
 

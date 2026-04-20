@@ -278,6 +278,12 @@ var go = await GameModule.Resource.LoadGameObjectAsync("BossPrefab", parent, pac
 | 忘记 `UnloadAsset` | 加载/释放必须配对 | 非 GameObject 的 Asset 需手动释放 |
 | `ForceUnloadUnusedAssets(gcCollection: true)` | `ForceUnloadUnusedAssets(performGCCollect: true)` | 参数名是 `performGCCollect` |
 | `SetRemoteServicesUrl("https://...")` | `SetRemoteServicesUrl("https://...", "https://fallback...")` | 需同时提供默认和备用地址 |
+| `OnClose()` 释放资源 | `OnDestroy()` 释放资源 | UIWindow 无 `OnClose` 方法，销毁回调是 `OnDestroy` |
+| `Resources.Load<T>(path)` | `GameModule.Resource.LoadAssetAsync<T>(location)` | 禁止 Resources.Load，必须走 YooAsset |
+| `StartCoroutine(LoadRoutine())` | `await GameModule.Resource.LoadAssetAsync<T>(...)` | 禁止 Coroutine，必须用 UniTask |
+| `SetSpriteAsync("icon")` | `SetSprite("icon")` | 不存在 SetSpriteAsync，SetSprite 本身内部异步 |
+| `ReleaseSprite("icon")` | 无需手动释放 | SetSprite 内置缓存池，无需 ReleaseSprite |
+| `LoadAssetAsync<Sprite>` + 手动释放 | `_img.SetSprite("icon")` | Sprite 加载必须用 SetSprite，禁止 LoadAssetAsync<Sprite> |
 
 ---
 
