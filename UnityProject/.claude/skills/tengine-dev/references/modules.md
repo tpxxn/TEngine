@@ -1,5 +1,7 @@
 # TEngine 模块 API 速查
 
+> **适用场景**：使用 GameModule.Timer/Scene/Audio/Fsm/MemoryPool/Log 等模块 API | **关联文档**：[ui-lifecycle.md](ui-lifecycle.md)（UI 模块）、[resource-api.md](resource-api.md)（Resource 模块）、[event-system.md](event-system.md)（事件模块）
+
 ## 核心 API：GameModule 统一访问入口
 
 所有模块通过 `GameModule` 静态类访问（已缓存），禁止重复 `ModuleSystem.GetModule<T>()`：

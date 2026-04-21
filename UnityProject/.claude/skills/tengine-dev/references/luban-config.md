@@ -1,5 +1,7 @@
 # TEngine Luban 配置表指南
 
+> **适用场景**：ConfigSystem/Tables 访问配置数据、Excel 数据表字段定义、Luban 代码生成流程、配置表初始化与预加载 | **关联文档**：[architecture.md](architecture.md)（AssetRaw/Configs 目录）、[resource-api.md](resource-api.md)（配置文件加载）
+
 ## 核心 API
 
 ### 技术栈

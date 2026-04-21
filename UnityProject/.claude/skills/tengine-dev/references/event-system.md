@@ -1,5 +1,7 @@
 # 事件系统
 
+> **适用场景**：GameEvent/AddUIEvent/GameEventMgr 使用、接口事件定义与发送、事件监听清理 | **关联文档**：[ui-lifecycle.md](ui-lifecycle.md)（AddUIEvent 自动清理）、[event-antipatterns.md](event-antipatterns.md)（避坑）、[naming-rules.md](naming-rules.md)（事件命名）
+
 ## 架构概览
 
 TEngine 事件系统由三个核心组件构成：
@@ -119,7 +121,7 @@ public interface IGameEvent
 {
     void OnGoldChanged();
 
-    voic OnHpChanged(int hp)
+    void OnHpChanged(int hp)
 }
 
 // 2. 源代码生成器自动实现并注册
@@ -129,7 +131,7 @@ public class IGameEvent_Event
     public static readonly int OnHpChanged = RuntimeId.ToRuntimeId("IGameEvent_Event.OnHpChanged");
 }
 
-public class IGameEvent_Gen : ITrade
+public class IGameEvent_Gen : IGameEvent
 {
     void OnGoldChanged() { /* 自动生成 */ }
 

@@ -1,5 +1,7 @@
 # 热更代码开发与热更包管理
 
+> **适用场景**：HybridCLR 热更边界划分、GameApp 热更入口、DLL 加载流程、AOT 泛型补全 | **关联文档**：[architecture.md](architecture.md)（程序集划分）、[modules.md](modules.md)（GameModule 访问）
+
 ## 核心 API
 
 ### 程序集划分

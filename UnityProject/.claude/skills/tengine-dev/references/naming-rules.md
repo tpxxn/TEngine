@@ -1,5 +1,7 @@
 # 命名规范与禁止模式
 
+> **适用场景**：C# 类型/成员命名约定、UI 节点前缀规范、禁止的代码模式（Resources.Load/Coroutine/SetSpriteAsync 等）| **关联文档**：[ui-lifecycle.md](ui-lifecycle.md)（节点前缀）、[resource-api.md](resource-api.md)（禁止模式）
+
 ## 核心 API
 
 ### C# 类型命名

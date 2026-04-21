@@ -1,5 +1,7 @@
 # MCP 工具指南
 
+> **适用场景**：MCP 场景管理（场景加载/对象创建）、GameObject 操作、UI Prefab 创建、脚本生成、编辑器自动化、测试工具 | **关联文档**：[mcp-visual.md](mcp-visual.md)（材质/Shader/VFX/动画）、[naming-rules.md](naming-rules.md)（命名约定）
+
 ## 核心原则：batch_execute 优先
 
 批量操作比单次调用快 10~100 倍，多对象任务必须用 `batch_execute`：

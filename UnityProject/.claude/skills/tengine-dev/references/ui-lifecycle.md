@@ -1,5 +1,7 @@
 # UI 生命周期与核心 API
 
+> **适用场景**：UIWindow/UIWidget 生命周期、层级（UILayer）、ShowUI/CloseUI/HideUI API、ScriptGenerator 节点绑定 | **关联文档**：[event-system.md](event-system.md)（AddUIEvent）、[ui-patterns.md](ui-patterns.md)（Widget 模板）、[naming-rules.md](naming-rules.md)（节点前缀）
+
 ---
 
 ## 一、核心 API

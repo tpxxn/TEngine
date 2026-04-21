@@ -1,5 +1,7 @@
 # UI 开发模式与模板
 
+> **适用场景**：UIWidget 8 种创建方式（CreateWidget/CreateWidgetByPath/CreateWidgetByPrefab 等）、AdjustIconNum 列表数量管理、动态列表复用模式 | **关联文档**：[ui-lifecycle.md](ui-lifecycle.md)（生命周期）、[naming-rules.md](naming-rules.md)（节点前缀）
+
 ## 一、核心 API
 
 ### UIWidget 创建方式（8 个方法）

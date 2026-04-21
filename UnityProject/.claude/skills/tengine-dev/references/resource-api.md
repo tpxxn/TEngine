@@ -1,5 +1,7 @@
 # 资源加载核心 API
 
+> **适用场景**：SetSprite/LoadGameObjectAsync/LoadAssetAsync 加载、UnloadAsset/UnloadUnusedAssets 卸载、热更下载 API | **关联文档**：[resource-patterns.md](resource-patterns.md)（生命周期模式）、[ui-lifecycle.md](ui-lifecycle.md)（窗口内资源释放时机）
+
 ## 核心原则
 
 1. **禁止 `Resources.Load()`**：所有资源通过 YooAsset 加载，放在 `Assets/AssetRaw/` 下

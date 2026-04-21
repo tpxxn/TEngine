@@ -1,5 +1,7 @@
 # TEngine 架构与项目结构
 
+> **适用场景**：理解项目分层架构、程序集划分、目录结构、启动流程 | **关联文档**：[modules.md](modules.md)、[hotfix-workflow.md](hotfix-workflow.md)、[resource-api.md](resource-api.md)
+
 ## 核心架构
 
 ### 分层架构
